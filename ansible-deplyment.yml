@@ -1,14 +1,14 @@
 ---
-- hosts: docker
+- hosts: ubuntu
   gather_facts: false
   remote_user: abdullah
   tasks:
     - name: Fetch files from the remote server
       synchronize:
-        src: /home/abdullah/GitHub_Projects/1_Ansible_Docker_Jenkins_Project/ansible_docker_project/
-        dest: /home/abdullah/GitHub_Projects/1_Ansible_Docker_Jenkins_Project/ansible_docker_project/
+        src: /home/abdullah/ansible_docker_project/
+        dest: /home/abdullah/github_projects/
         mode: pull
-- hosts: ansible
+- hosts: localhost
   gather_facts: false
   remote_user: abdullah
   tasks:
@@ -32,7 +32,7 @@
       source: build
       name: nginx_image:v1
       build:
-        path: /home/aadmin/myproject/projects/
+        path: /home/abdullah/projects
       state: present
   
   - name: Creating the container and start
@@ -42,4 +42,3 @@
       ports:
         - "8183:80"
       state: started
-
