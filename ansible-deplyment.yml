@@ -5,11 +5,11 @@
   tasks:
     - name: Fetch files from the remote server
       synchronize:
-        src: /home/abdullah/DevOps_Projects/ansible_docker_project
+        src: /home/abdullah/
         dest: /home/abdullah/DevOps_Projects/ansible_docker_project
         mode: pull
 
-- hosts: ubuntu
+- hosts: localhost
   gather_facts: false
   remote_user: abdullah
   tasks:
@@ -25,7 +25,7 @@
       image: nginx_image:v1
       state: absent
 
-  - name: "Its deleting the old inmage!!!"
+  - name: Its deleting the old inmage!!!
     docker_image:
       name: nginx_image:v1
       state: absent
@@ -35,7 +35,7 @@
       source: build
       name: nginx_image:v1
       build:
-        path: /home/abdullah/DevOps_Projects/ansible_docker_project/
+        path: /home/abdullah/DevOps_Projects/ansible_docker_project
       state: present
   
   - name: Creating the container and start

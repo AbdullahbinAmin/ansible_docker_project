@@ -1,5 +1,10 @@
 [ubuntu]
-192.168.193.131
+192.168.193.131 
+
 [localhost]
-192.168.193.129
+192.168.193.129 
+
+[all:vars]
+ansible_ssh_user=abdullah
+ansible_ssh_pass=123@Abd...
 
